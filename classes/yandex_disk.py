@@ -27,7 +27,7 @@ class YandexDisk:
     @staticmethod
     def __create_log_file(files_list: list):
         write_data = [{'file_name': f['file_name'], 'size': f['size']} for f in files_list]
-        with open('../log.json', 'w+', encoding='utf-8') as f:
+        with open('log.json', 'w+', encoding='utf-8') as f:
             json.dump(write_data, f, indent=4)
         print_success('Файл log.json создан')
 
