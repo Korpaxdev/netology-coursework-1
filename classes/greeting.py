@@ -30,9 +30,9 @@ class Greeting:
                           error_message: str = error_messages['folder_name']) -> int | str:
         while True:
             folder_name = color_input(message)
-            if not folder_name:
+            if not folder_name.strip():
                 return default
-            if match(r"[\\/:*?\"<>|]+", folder_name):
+            if match(r".*[\\/:*?\"<>|]+", folder_name):
                 print_error(error_message)
                 continue
             return folder_name
