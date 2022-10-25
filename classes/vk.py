@@ -30,9 +30,10 @@ class Vk:
     def __get_larger_image(sizes: list) -> tuple:
         size_types = ('w', 'z', 'y', 'x', 'm', 's')
         for s_type in size_types:
-            for s in sizes:
-                if s_type == s['type']:
-                    return s['url'], s['type']
+            image_list = list(filter(lambda p: p['type'] == s_type, sizes))
+            if image_list:
+                large_image = image_list[0]
+                return large_image['url'], large_image['type']
 
     @staticmethod
     def __get_extension_from_url(url: str) -> str:
